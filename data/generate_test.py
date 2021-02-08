@@ -22,8 +22,8 @@ def sample_test_data(data_name, test_num=99, sample_type='random'):
 
     lines = open(data_file).readlines()
     for line in lines:
-        user, items = line.strip().split(' ', 1)
-        items = items.split(' ')
+        user, items = line.strip().split(':', 1)
+        items = items.split(',')
         items = [int(item) for item in items]
         user_items[user] = items
         for item in items:
@@ -52,6 +52,7 @@ def sample_test_data(data_name, test_num=99, sample_type='random'):
         for user, samples in user_neg_items.items():
             out.write(user+' '+' '.join(samples)+'\n')
 
-data_names = ['Beauty', 'Sports_and_Outdoors', 'Toys_and_Games', 'Yelp', 'LastFM']
+# data_names = ['Beauty', 'Sports_and_Outdoors', 'Toys_and_Games', 'Yelp', 'LastFM']
+data_names = ["data"]
 for data_name in data_names:
     sample_test_data(data_name)
